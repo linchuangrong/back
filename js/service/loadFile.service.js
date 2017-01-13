@@ -5,9 +5,9 @@
  */
 (function() {
 	'use strict';
-	
-	app.import('/app/Tpl/back/js/libs/ocLazyLoad/ocLazyLoad.js', 'oc.lazyLoad'); //引入oclazyload
-	
+
+	app.import(yiqi_config.baseUrl + 'js/libs/ocLazyLoad/ocLazyLoad.js', 'oc.lazyLoad'); //引入oclazyload
+
 	angular.module("load.file", ["oc.lazyLoad"])
 		.service("loadFile", ["$ocLazyLoad", function($ocLazyLoad) {
 			this.load = function(src) {

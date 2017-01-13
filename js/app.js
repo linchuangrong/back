@@ -9,7 +9,7 @@ app.import = importFn;
 function importFn(moduleAndPath, moduleName) {
 
 	//过滤重复的js文件
-	if(!importObject[moduleAndPath]) {
+	if (!importObject[moduleAndPath]) {
 		importObject[moduleAndPath] = moduleAndPath;
 	} else {
 		return false;
@@ -23,7 +23,7 @@ function importFn(moduleAndPath, moduleName) {
 		return regexp.test(s);
 	}
 
-	if(moduleName == null) {
+	if (moduleName == null) {
 		var moduleFileName = moduleAndPath.substring(moduleAndPath.lastIndexOf('/') + 1);
 		modName = moduleFileName.substring(0, moduleFileName.lastIndexOf("."));
 	} else {
@@ -31,24 +31,23 @@ function importFn(moduleAndPath, moduleName) {
 	}
 
 	//判断是否为URL，然后载入js文件
-	if(isUrl(moduleAndPath)) {
+	if (isUrl(moduleAndPath)) {
 		console.log("file path error:" + modName);
 	} else {
 		$("body").append("<script defer async='true' src='" + moduleAndPath + "'></script>");
 	}
 
 	//执行注入
-	if(app.requires.indexOf(moduleName) == -1) {
+	if (app.requires.indexOf(moduleName) == -1) {
 		//没有加载,则自动加载
 		app.requires.push(modName);
 	}
 }
 
-
 //animate动画
-app.import('/app/Tpl/back/js/libs/angular/angular-animate.js', 'ngAnimate');
+app.import(yiqi_config.baseUrl + 'js/libs/angular/angular-animate.js', 'ngAnimate');
 //加入拦截器
-app.import(yiqi_config.serviceUrl + '/httpInterceptor.factory.js','httpInterceptor.factory');
-app.import('/app/Tpl/back/js/dao/app.dao.js', 'app.dao');
-app.import('/app/Tpl/back/js/filter/common.filter.js', 'common.filter');
+app.import(yiqi_config.serviceUrl + '/httpInterceptor.factory.js', 'httpInterceptor.factory');
+app.import(yiqi_config.baseUrl + 'js/dao/app.dao.js', 'app.dao');
+app.import(yiqi_config.baseUrl + 'js/filter/common.filter.js', 'common.filter');
 app.import(yiqi_config.directiveUrl + '/loading.directive.js', 'loading.directive');

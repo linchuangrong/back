@@ -7,7 +7,7 @@
 (function() {
 	"use strict";
 
-	app.import('/app/Tpl/back/js/libs/angular/angular-ui-router.min.js', 'ui.router'); //引入ui-router
+	app.import(yiqi_config.baseUrl + 'js/libs/angular/angular-ui-router.min.js', 'ui.router'); //引入ui-router
 	app.import(yiqi_config.serviceUrl + '/loadFile.service.js', 'load.file'); //引入动态加载js插件
 
 	app.config(webRouter);
