@@ -128,7 +128,6 @@
 				window.alertDialog.show("提示","点击成功");
 			}, 2000, true);
 
-			console.log(defer);
 			return defer.promise;
 
 		}
