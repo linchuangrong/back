@@ -1,0 +1,71 @@
+<div id="certification">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="certification.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+
+		<form class="form-horizontal" novalidate="novalidate">
+			<div class="row search-container">
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">关键词</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-8">
+					<div class="input-group">
+						<button type="button" class="btn btn-success">
+							<i class="glyphicon glyphicon-search"></i>
+							<span>搜索</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<!--表格 begin-->
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover middle">
+				<thead>
+					<tr class="text-primary">
+						<th width="30">
+							<input type="checkbox" ng-model="certification.checkAll">
+						</th>
+						<th>编号</th>
+						<th>用户名</th>
+						<th>真实姓名</th>
+						<th>身份证号</th>
+						<th>审核状态</th>
+						<th>拒绝理由</th>
+						<th width="60" class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+						<td width="30"><input type="checkbox" ng-checked="certification.checkAll"></td>
+						<td>{{item}}</td>
+						<td>胖子明</td>
+						<td>何卫明</td>
+						<td>440514166987425444</td>
+						<td>
+							<span class="label label-default">未审核</span>
+							<span class="label label-danger">审核失败</span>
+							<span class="label label-success">审核通过</span>
+						</td>
+						<td></td>
+						<td width="60" class="text-center">
+							<a class="hover-pointer hover-underline" ui-sref="user.certificationDetail({'id':669})">审核</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--表格 end-->
+		<!--分页 begin-->
+		<page-bar page-change="certification.pageParams.pageChange()" page-count="certification.pageParams.page_count" current="certification.pageParams.current" show-page="{{certification.pageParams.showPage}}"></page-bar>
+		<!--分页 end-->
+
+	</div>
+</div>

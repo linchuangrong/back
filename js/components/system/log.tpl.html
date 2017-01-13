@@ -1,0 +1,80 @@
+<div id="log">
+	
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="log.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+	
+	<div class="tab-content">
+		<form class="form-horizontal" novalidate="novalidate">
+			<div class="row search-container">
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">关键词</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">开始时间</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">结束时间</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 pull-right text-align-right">
+					<div class="input-group">
+						<button type="button" class="btn btn-success ml-10">
+							<i class="glyphicon glyphicon-search"></i>
+							<span>搜索</span>
+						</button>
+						<button type="button" class="btn btn-danger ml-10">
+							<i class="glyphicon glyphicon-trash"></i>
+							<span>多项删除</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--表格 begin-->
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover middle">
+				<thead>
+					<tr class="text-primary">
+						<th width="30">
+							<input type="checkbox" ng-model="log.checkAll">
+						</th>
+						<th>编号</th>
+						<th>日志信息</th>
+						<th>操作时间</th>
+						<th>操作IP</th>
+						<th>管理员</th>
+						<th>操作结果</th>
+						<th width="60" class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+						<td width="30"><input type="checkbox" ng-checked="log.checkAll"></td>
+						<td>{{item}}</td>
+						<td>Tanmay Tanmay Tanmay Tanmay Tanmay Tanmay</td>
+						<td>2017-01-08 17:07:27</td>
+						<td>185.21.21.5</td>
+						<td>admin</td>
+						<td>成功</td>
+						<td width="60" class="text-center">
+							<a href="" class="glyphicon glyphicon-trash text-danger"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--表格 end-->
+		<!--分页 begin-->
+		<page-bar page-change="log.pageParams.pageChange()" page-count="log.pageParams.page_count" current="log.pageParams.current" show-page="{{log.pageParams.showPage}}"></page-bar>
+		<!--分页 end-->
+	</div>
+</div>

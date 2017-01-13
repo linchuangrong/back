@@ -1,0 +1,68 @@
+<div id="companyCertificationDetail">
+	
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="companyCertificationDetail.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+	
+	<div class="tab-content">
+		
+		<!--面包屑导航条 begin-->
+		<breadcrumb list-array="companyCertificationDetail.smallMenu"></breadcrumb>
+		<!--面包屑导航条 end-->
+
+		<form name="editForm" novalidate="novalidate">
+			<!--表格 begin-->
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover break-all middle">
+					<tbody>
+						<tr>
+							<td class="info text-align-right">用户名</td>
+							<td>胖子明</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">企业名</td>
+							<td>益齐（深圳）企业咨询管理有限公司</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">营业执照号</td>
+							<td>4564456879456123</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">营业执照照片</td>
+							<td class="idCard">
+								<img ng-src="{{public.imgUrl}}/example-slide-1.jpg">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">组织机构代码证</td>
+							<td class="idCard">
+								<img ng-src="{{public.imgUrl}}/example-slide-2.jpg">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">类型</td>
+							<td>
+								<select class="form-control" style="width: 100px;">
+									<option value="1">通过</option>
+									<option value="0">不通过</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">拒绝理由</td>
+							<td>
+								<textarea type="text" class="form-control"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--表格 end-->
+			<div class="pb-20 text-align-center">
+				<button type="button" class="btn btn-success padding-left-right-20">确&nbsp;&nbsp;定</button>
+			</div>
+
+		</form>
+
+	</div>
+</div>

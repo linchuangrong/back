@@ -1,0 +1,109 @@
+<div id="crowdfundSuccessList">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="crowdfundSuccessList.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+
+		<form class="form-horizontal" novalidate="novalidate">
+			<div class="row search-container">
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">项目名称</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">发起人ID</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">选择分类</span>
+						<select type="text" class="form-control">
+							<option>全部</option>
+							<option>类型1</option>
+							<option>类型2</option>
+							<option>类型3</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">创建开始时间</span>
+						<input type="text" class="form-control" id="start_time" lay-date ng-model="crowdfundSuccessList.searchForm.start_time" istime="true" format="YYYY年MM月DD">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">创建结束时间</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 pull-right text-align-right">
+					<div class="input-group">
+						<button type="button" class="btn btn-success ml-10">
+							<i class="glyphicon glyphicon-search"></i>
+							<span>搜索</span>
+						</button>
+						<!--<button type="button" class="btn btn-info ml-10">
+							<i class="glyphicon glyphicon-plus"></i>
+							<span>新增筹款</span>
+						</button>-->
+						<button type="button" class="btn btn-danger ml-10">
+							<i class="glyphicon glyphicon-trash"></i>
+							<span>多项删除</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<!--表格 begin-->
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover middle">
+				<thead>
+					<tr class="text-primary">
+						<th width="30">
+							<input type="checkbox" ng-model="crowdfundSuccessList.checkAll">
+						</th>
+						<th>编号</th>
+						<th>项目名称</th>
+						<th>类型</th>
+						<th>发起人</th>
+						<th>目标金额</th>
+						<th>创建时间</th>
+						<th>结束时间</th>
+						<th>状态</th>
+						<th width="80" class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+						<td width="30"><input type="checkbox" ng-checked="crowdfundSuccessList.checkAll"></td>
+						<td>{{item}}</td>
+						<td>项目名称项目名称项目名称</td>
+						<td>类型类型</td>
+						<td>胖子明</td>
+						<td>80000</td>
+						<td>2017-01-12 14:10:46</td>
+						<td>2017-02-12 14:10:46</td>
+						<td>待审核</td>
+						<td width="80" class="text-center">
+							<a href="" class="ml-5 mr-5 glyphicon glyphicon-pencil text-success" title="编辑"></a>
+							<a href="" class="ml-5 mr-5 glyphicon glyphicon-trash text-danger" title="删除"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--表格 end-->
+		<!--分页 begin-->
+		<page-bar page-change="crowdfundSuccessList.pageParams.pageChange()" page-count="crowdfundSuccessList.pageParams.page_count" current="crowdfundSuccessList.pageParams.current" show-page="{{crowdfundSuccessList.pageParams.showPage}}"></page-bar>
+		<!--分页 end-->
+
+	</div>
+</div>

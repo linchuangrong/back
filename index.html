@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="publicCtrl as public">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>后台管理-{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="/app/Tpl/back/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/app/Tpl/back/css/main.css" />
+	</head>
+
+	<body>
+		<!--头部 begin-->
+		<div id="header" ng-class="{'showDom':showMenu}">
+			<div class="logo">
+				<a ui-sref="login"><img ng-src="{{public.imgUrl}}/logo.png" alt="益齐" /></a>
+			</div>
+			<div class="user pull-right dropdown">
+				<!--<div class="photo">
+					<img src="img/example-slide-1.jpg" />
+				</div>-->
+				<div class="username" data-toggle="dropdown">
+					<span>管理员 - admin</span>
+					<div class="drop-down-btn">
+						<span class="caret"></span>
+					</div>
+				</div>
+				<!--下拉菜单 begin-->
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="">修改密码</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="">退出</a>
+					</li>
+				</ul>
+				<!--下拉菜单 end-->
+			</div>
+		</div>
+		<!--头部 end-->
+
+		<!--左侧菜单 begin-->
+		<div id="menu" ng-class="{'showDom':showMenu}">
+			<!--<div class="none-text"></div>-->
+			<ul>
+				<li ng-class="{'active':leftMenu=='system'}" ui-sref="system.work">
+					<span>系统首页</span>
+				</li>
+				<li ng-class="{'active':leftMenu=='user'}" ui-sref="user.manage">
+					<span>用户管理</span>
+				</li>
+				<li ng-class="{'active':leftMenu=='activity'}" ui-sref="activity.activityClassify">
+					<span>活动管理</span>
+				</li>
+				<li ng-class="{'active':leftMenu=='crowdfund'}" ui-sref="crowdfund.crowdfundReleaseList">
+					<span>筹款管理</span>
+				</li>
+				<li ng-class="{'active':leftMenu=='examine'}">
+					<span>评审评估</span>
+				</li>
+			</ul>
+		</div>
+		<!--左侧菜单 end-->
+
+		<!--左上角小圆角 begin-->
+		<div id="top-radius" ng-class="{'showDom':showMenu}">
+			<div></div>
+		</div>
+		<!--左上角小圆角 end-->
+
+		<!--右侧内容 begin-->
+		<div id="right-container">
+			<div class="main animate-enter" ui-view></div>
+		</div>
+		<!--右侧内容 end-->
+
+		<!--弹框 begin-->
+		<div class="modal fade" id="publicAlertDialog" tabindex="-1">
+			<div class="modal-dialog" style="width: 360px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" bs-hide-dialog="publicAlertDialog">&times;</button>
+						<div>{{public.alertTitle}}</div>
+					</div>
+					<div class="modal-body">
+						<div ng-bind-html="public.alertHtml | toHtml"></div>
+					</div>
+					<div class="modal-footer text-align-center">
+						<div class="btn btn-success pl-20 pr-20" bs-hide-dialog="publicAlertDialog">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--弹框 end-->
+
+		<!--有事件的弹框 begin-->
+		<div class="modal fade" id="buttonDialog" tabindex="-1">
+			<div class="modal-dialog" ng-style="{'width':public.buttonDialog.width}">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" ng-click="public.buttonDialog.cancel()">&times;</button>
+						<div>{{public.buttonDialog.title}}</div>
+					</div>
+					<div class="modal-body">
+						<div ng-bind-html="public.buttonDialog.html | toHtml"></div>
+					</div>
+					<div class="modal-footer text-align-right">
+						<div class="btn btn-success pl-20 pr-20" ng-click="public.buttonDialog.confirm()">{{public.buttonDialog.confirmText}}</div>
+						<div class="btn btn-default pl-20 pr-20" ng-click="public.buttonDialog.cancel()">{{public.buttonDialog.cancelText}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--有事件的弹框 end-->
+
+		<!--loading 动画 begin-->
+		<loading show-loading="public.showLoading"></loading>
+		<!--loading 动画 end-->
+
+		<!--弹出有动画效果的一行提示文字 begin-->
+		<div class="alert-tip" ng-class="{'showDom':public.alertTipPanel,'hideDom':!public.alertTipPanel}">
+			<p ng-bind="public.alertTipText">操作成功</p>
+		</div>
+		<!--弹出有动画效果的一行提示文字 end-->.
+		
+		<script type="text/javascript" src="/app/Tpl/back/js/yiqi_config.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/libs/jquery/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/libs/echarts/echarts.common.min.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/libs/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/libs/laydate/laydate.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/libs/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/app.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/router.js"></script>
+		<script type="text/javascript" src="/app/Tpl/back/js/components/public.js"></script>
+	</body>
+
+</html>

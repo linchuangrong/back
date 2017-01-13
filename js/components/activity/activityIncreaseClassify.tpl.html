@@ -1,0 +1,50 @@
+<div id="activityIncreaseClassify">
+    <!--tab导航条 begin-->
+    <tab-Menu list-array="activityIncreaseClassify.tabMenu"></tab-Menu>
+    <!--tab导航条 end-->
+    <div class="tab-content">
+        <!--面包屑导航条 begin-->
+        <breadcrumb list-array="activityIncreaseClassify.smallMenu"></breadcrumb>
+        <!--面包屑导航条 end-->
+        <form name="editForm" novalidate="novalidate">
+            <!--表格 begin-->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover break-all middle">
+                    <tbody>
+                    <tr>
+                        <td class="info text-align-right">分类名称</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="其他">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">分类</td>
+                        <td>
+                            <div class="row width-90">
+                                <div class="col-md-4">
+                                    <select class="form-control">
+                                        <option>==目前&nbsp;只支持二级分类==</option>
+                                        <option>广西</option>
+                                        <option>北京</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">排序</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="1">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--表格 end-->
+            <div class="pb-20 text-align-center">
+                <button type="button" class="btn btn-success padding-left-right-20">保&nbsp;&nbsp;存</button>
+            </div>
+        </form>
+    </div>
+</div>

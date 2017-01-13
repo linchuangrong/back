@@ -1,0 +1,63 @@
+<div id="addAddress">
+	
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="addBankcard.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+	
+	<div class="tab-content">
+
+		<!--面包屑导航条 begin-->
+		<breadcrumb list-array="addBankcard.smallMenu"></breadcrumb>
+		<!--面包屑导航条 end-->
+
+		<form name="editForm" novalidate="novalidate">
+			<!--表格 begin-->
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover break-all middle">
+					<tbody>
+						<tr>
+							<td class="info text-align-right">姓名</td>
+							<td>
+								<input type="text" class="form-control auto-input-width" value="小明">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">身份证</td>
+							<td>
+								<input type="text" class="form-control auto-input-width">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">选择银行</td>
+							<td>
+								<select class="form-control auto-input-width">
+									<option>中国建设银行</option>
+									<option>招商银行</option>
+									<option>中国邮政储蓄银行</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">银行卡号</td>
+							<td>
+								<input type="text" class="form-control auto-input-width">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">手机号</td>
+							<td>
+								<input type="text" class="form-control auto-input-width">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--表格 end-->
+			<div class="pb-20 text-align-center">
+				<button type="button" class="btn btn-success padding-left-right-20">保&nbsp;&nbsp;存</button>
+			</div>
+
+		</form>
+
+	</div>
+</div>

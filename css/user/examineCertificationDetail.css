@@ -1,0 +1,9 @@
+/*评审评估机构认证*/
+#examineCertificationDetail .table tr td:nth-child(1) {
+  width: 185px;
+}
+#examineCertificationDetail .idCard img {
+  width: 300px;
+  height: auto;
+  display: block;
+}

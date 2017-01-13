@@ -1,0 +1,178 @@
+<div id="activityIncrease">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="activityIncrease.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+
+		<!--面包屑导航条 begin-->
+		<breadcrumb list-array="activityIncrease.smallMenu"></breadcrumb>
+		<!--面包屑导航条 end-->
+
+		<form name="editForm" novalidate="novalidate">
+			<!--表格 begin-->
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover break-all middle">
+					<tbody>
+					<tr>
+						<td class="info text-align-right">活动名称</td>
+						<td>
+							<input type="text" class="form-control auto-input-width" value="">
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">发起人ID</td>
+						<td>
+							<input type="text" class="form-control auto-input-width" value="">
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">活动详情</td>
+						<td>
+							<textarea type="text" class="form-control auto-input-width">这是一个副文本框</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">活动海报</td>
+						<td>
+							<button type="button" class="btn btn-success">图片上传</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">活动人数</td>
+						<td>
+							<div class="auto-input-width">
+								<div class="input-group">
+									<input type="text" class="form-control">
+									<span class="input-group-addon input-group-addon-color">人</span>
+								</div>
+							</div>
+
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">活动时间</td>
+						<td>
+							<div class="row width-90">
+								<div class="col-md-3 col-xs-5">
+									<input type="text" class="form-control" id="start_time" lay-date ng-model="activityIncrease.searchForm.start_time" istime="true" format="YYYY年MM月DD日">
+								</div>
+								<sapn class="float-left padding-6">至</sapn>
+								<div class="col-md-3 col-xs-5">
+									<input type="text" class="form-control" id="end_time" lay-date ng-model="activityIncrease.searchForm.end_time" istime="true" format="YYYY年MM月DD日">
+								</div>
+
+							</div>
+
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">活动地点</td>
+						<td>
+							<div class="row width-90">
+								<div class="col-md-2 col-xs-3">
+									<select class="form-control">
+										<option>请选择</option>
+										<option>广西</option>
+										<option>北京</option>
+									</select>
+								</div>
+								<div class="col-md-2 col-xs-3">
+									<select class="form-control">
+										<option>请选择</option>
+										<option>汕头</option>
+										<option>湛江</option>
+										<option>江门</option>
+									</select>
+								</div>
+								<div class="col-md-4 col-xs-6">
+									<input type="text" class="form-control" value="详细地址"/>
+								</div>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="info text-align-right">活动类别</td>
+						<td>
+							<div class="btn-group">
+								<a class="btn btn-default dropdown-toggle" data-toggle="dropdown">互联网 <span class="caret"></span></a>
+								<ul class="dropdown-menu pull-left">
+									<li>
+										<a tabindex="-1" href="javascript:void(0)">主办方</a>
+									</li>
+									<li>
+										<a tabindex="-1" href="javascript:void(0)">专家</a>
+									</li>
+									<li>
+										<a tabindex="-1" href="javascript:void(0)">个人</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">选择票种</td>
+						<td>
+							<button type="button" class="btn btn-success">免费票</button>
+							<button type="button" class="btn btn-success margin-left-10" bs-show-dialog="selectEditType" click-func="activityIncrease.setId()">收费票</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">联系电话</td>
+						<td>
+							<input type="text" class="form-control auto-input-width" value="">
+						</td>
+					</tr>
+					<tr>
+						<td class="info text-align-right">状态</td>
+						<td>
+							<div class="radio">
+								<label class="radio-inline">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 有效
+								</label>
+								<label class="radio-inline margin-left-30">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 无效
+								</label>
+								<label class="radio-inline margin-left-30">
+									<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 待审核
+								</label>
+							</div>
+						</td>
+					</tr>
+
+
+					</tbody>
+				</table>
+			</div>
+			<!--表格 end-->
+			<div class="pb-20 text-align-center">
+				<button type="button" class="btn btn-success padding-left-right-20">确&nbsp;&nbsp;定</button>
+			</div>
+		</form>
+
+
+		<div class="modal fade" id="selectEditType" tabindex="-1">
+			<div class="modal-dialog" style="width: 660px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" bs-hide-dialog="selectEditType">&times;</button>
+						<div>选择编辑类型</div>
+					</div>
+					<div class="modal-body">
+						<div class="text-align-center">
+							<a class="btn btn-info" bs-hide-dialog="selectEditType" ui-sref="user.editInfo">个人信息</a>
+							<a class="btn btn-warning" bs-hide-dialog="selectEditType" ui-sref="user.address">收货地址</a>
+							<a class="btn btn-success" bs-hide-dialog="selectEditType" ui-sref="user.bankcard">银行卡</a>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn btn-success" bs-hide-dialog="selectEditType" click-func="manage.yes()">确定</div>
+						<div class="btn btn-default" bs-hide-dialog="selectEditType">取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

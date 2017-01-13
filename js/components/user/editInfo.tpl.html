@@ -1,0 +1,85 @@
+<div id="editInfo">
+	
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="editInfo.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+	
+	<div class="tab-content">
+		
+		<!--面包屑导航条 begin-->
+		<breadcrumb list-array="editInfo.smallMenu"></breadcrumb>
+		<!--面包屑导航条 end-->
+		
+		<form name="editForm" novalidate="novalidate">
+			<!--表格 begin-->
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover break-all middle">
+					<tbody>
+						<tr>
+							<td class="info text-align-right">用户名</td>
+							<td>小小小仙女</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">邮箱</td>
+							<td>45615364@sina.com</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">手机号</td>
+							<td>
+								<input type="text" class="form-control auto-input-width" value="18855669988">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">密码</td>
+							<td>
+								<input type="password" class="form-control auto-input-width">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">确认密码</td>
+							<td>
+								<input type="password" class="form-control auto-input-width">
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">用户类型</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn btn-default dropdown-toggle" data-toggle="dropdown">向下展开 <span class="caret"></span></a>
+									<ul class="dropdown-menu pull-left">
+										<li>
+											<a tabindex="-1" href="javascript:void(0)">主办方</a>
+										</li>
+										<li>
+											<a tabindex="-1" href="javascript:void(0)">专家</a>
+										</li>
+										<li>
+											<a tabindex="-1" href="javascript:void(0)">个人</a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">身份证姓名</td>
+							<td>
+								<button type="button" class="btn btn-success">图片上传</button>
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">身份证号码</td>
+							<td>
+								<button type="button" class="btn btn-success">图片上传</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--表格 end-->
+			<div class="pb-20 text-align-center">
+				<button type="button" class="btn btn-success padding-left-right-20">确&nbsp;&nbsp;定</button>
+			</div>
+			
+		</form>
+	</div>
+</div>

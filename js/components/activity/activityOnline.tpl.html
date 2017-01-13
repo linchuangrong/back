@@ -1,0 +1,151 @@
+<div id="activityOnline">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="activityOnline.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+		<form class="form-horizontal" novalidate="novalidate">
+			<div class="row search-container">
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">活动名称</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">发起人ID</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">时间</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">分类</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">创建开始时间</span>
+						<input type="text" class="form-control" id="start_time" lay-date ng-model="activityOnline.searchForm.start_time" istime="true" format="YYYY年MM月DD日">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">创建结束时间</span>
+						<input type="text" class="form-control" id="end_time" lay-date ng-model="activityOnline.searchForm.end_time" istime="true" format="YYYY年MM月DD日">
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 pull-right text-align-right">
+					<div class="input-group">
+						<button type="button" class="btn btn-success ml-10">
+							<i class="glyphicon glyphicon-search"></i>
+							<span>搜索</span>
+						</button>
+						<button type="button" class="btn btn-info ml-10" ui-sref="activity.activityIncrease">
+							<i class="glyphicon glyphicon-plus"></i>
+							<span>新增</span>
+						</button>
+						<button type="button" class="btn btn-danger ml-10">
+							<i class="glyphicon glyphicon-trash"></i>
+							<span>多项删除</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--表格 begin-->
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover middle">
+				<thead>
+					<tr class="text-primary">
+						<th width="30">
+							<input type="checkbox" ng-model="activityOnline.checkAll">
+						</th>
+						<th>编号</th>
+						<th>活动名称</th>
+						<th>类型</th>
+						<th>发起人</th>
+						<th>是否成功</th>
+						<th>关注</th>
+						<th>创建开始时间</th>
+						<th>创建结束时间</th>
+						<th>状态</th>
+						<th width="80" class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+						<td width="30"><input type="checkbox" ng-checked="activityOnline.checkAll"></td>
+						<td>{{item}}</td>
+						<td>超级长的活动名称</td>
+						<td>什么类型</td>
+						<td>一个小瘦子</td>
+						<td>是</td>
+						<td>2300</td>
+						<td>2016-11-25&nbsp;18:14:20</td>
+						<td>2016-11-25&nbsp;18:14:20</td>
+						<td>有效</td>
+						<td width="80" class="text-center">
+							<a href="" class="margin-5 glyphicon glyphicon-pencil text-success" bs-show-dialog="selectEditType" click-func="activityOnline.setId()"></a>
+							<a href="" class="margin-5 glyphicon glyphicon-trash text-danger" ng-click="activityOnline.showDeleteDialog()" ></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--表格 end-->
+		<!--分页 begin-->
+		<page-bar page-change="activityOnline.pageParams.pageChange()" page-count="activityOnline.pageParams.page_count" current="activityOnline.pageParams.current" show-page="{{activityOnline.pageParams.showPage}}"></page-bar>
+		<!--分页 end-->
+
+		<!--编辑弹框 begin-->
+		<div class="modal fade" id="selectEditType" tabindex="-1">
+			<div class="modal-dialog" style="width: 360px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" bs-hide-dialog="selectEditType">&times;</button>
+						<div>选择编辑类型</div>
+					</div>
+					<div class="modal-body">
+						<div class="text-align-center">
+							<a class="btn btn-info" bs-hide-dialog="selectEditType" ui-sref="user.editInfo">个人信息</a>
+							<a class="btn btn-warning" bs-hide-dialog="selectEditType" ui-sref="user.address">收货地址</a>
+							<a class="btn btn-success" bs-hide-dialog="selectEditType" ui-sref="user.bankcard">银行卡</a>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn btn-default" bs-hide-dialog="selectEditType">取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑弹框 begin-->
+		<!--删除用户弹框 begin-->
+		<div class="modal fade" id="deleteUserPanel" tabindex="-1">
+			<div class="modal-dialog" style="width: 360px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" bs-hide-dialog="deleteUserPanel">&times;</button>
+						<div>提示</div>
+					</div>
+					<div class="modal-body">
+						<div>确定删除吗？该操作不可逆，请谨慎执行！</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn btn-success" ng-click="activityOnline.deleteUser()">确定</div>
+						<div class="btn btn-default" bs-hide-dialog="deleteUserPanel">取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--删除用户弹框 begin-->
+	</div>
+</div>
