@@ -1,0 +1,91 @@
+#addExamine {
+    .idCard {
+        img {
+            width: 300px;
+            height: auto;
+            display: block;
+        }
+    }
+    label.left-label {
+        line-height: 34px;
+        font-weight: normal;
+        width: 170px;
+        float: left;
+        display: inline-block;
+    }
+    .icon-box {
+        line-height: 34px;
+        display: inline-block;
+        a {
+            color: #666666;
+            &:hover {
+                color: @color-success;
+            }
+        }
+    }
+    .project-name-box:last-child {
+        margin-bottom: 0;
+    }
+
+    .alert {
+        padding: 5px 10px;
+        margin: 5px 0 10px;
+        line-height: 30px;
+        font-size: 14px;
+        i {
+            font-weight: normal;
+            font-size: 12px;
+            float: right;
+            display: block;
+            line-height: 28px;
+            vertical-align: middle;
+        }
+    }
+
+    //动态表单
+    .add-form-panel {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+        //左侧表单
+        .left-float-content {
+            padding-bottom: 20px;
+            float: left;
+            width: 75%;
+            .panel > .panel-heading {
+                line-height: 34px;
+                i {
+                    float: right;
+                    margin: 0 5px;
+                    display: inline-block;
+                    line-height: 34px;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .third-panel {
+                label {
+                    line-height: 34px;
+                    font-weight: normal;
+                    float: left;
+                    display: inline-block;
+                }
+            }
+
+        }
+        //右侧浮动框
+        .right-float-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25%;
+            padding-left: 30px;
+            .alert {
+                line-height: 30px;
+                font-size: 14px;
+            }
+        }
+    }
+}

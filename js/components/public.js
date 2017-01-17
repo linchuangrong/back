@@ -98,8 +98,8 @@
 
 			/*
 			 * 动画提示文字
-			 * 调用语法：window.showAlertTip(data.msg);
-			 * 调用语法：window.showAlertTip(["展示的文字",3000]);//3000为停留在界面上的毫秒时间
+			 * 调用语法：window.alertTip.show(data.msg);
+			 * 调用语法：window.alertTip.show(["展示的文字",3000]);//3000为停留在界面上的毫秒时间
 			 */
 			window.alertTip = {
 				"show": function(data) {
@@ -123,7 +123,6 @@
 						if (!vm.alertTipPanel) {
 							vm.alertTipPanel = true;
 						}
-						console.log(vm.alertTipPanel);
 						//倒计时隐藏动画
 						vm.alertTipPanelTimeout = $timeout(function() {
 							vm.alertTipPanel = false;

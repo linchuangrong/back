@@ -48,10 +48,10 @@
 			.state("activity.activityIncreaseClassify", activityIncreaseClassify()) //新增活动分类
 			.state("activity.activityCompileClassify", activityCompileClassify()) //编辑活动分类
 			.state("activity.activityOnline", activityOnline()) //已上线活动
-			.state("activity.activityIncrease", activityIncrease()) //新增活动
-			.state("activity.activityChargeTicket", activityChargeTicket()) //新增活动--收费票--弹窗
 			.state("activity.activityAuditing", activityAuditing()) //待审核活动
 			.state("activity.activityRecycle", activityRecycle()) //项目回收站
+			.state("activity.activityIncrease", activityIncrease()) //新增活动	
+			.state("activity.activityChargeTicket", activityChargeTicket()) //新增活动--收费票--弹窗
 			/*宁耀鹏 end*/
 			.state("crowdfund", crowdfund()) //筹款管理
 			.state("crowdfund.crowdfundTypeList", crowdfundTypeList()) //筹款类型
@@ -59,6 +59,17 @@
 			.state("crowdfund.crowdfundExamineList", crowdfundExamineList()) //待审核筹款
 			.state("crowdfund.crowdfundSuccessList", crowdfundSuccessList()) //已成功筹款
 			.state("crowdfund.addCrowdfund", addCrowdfund()) //新增筹款
+			.state("examine", examine()) //评审评估
+			.state("examine.examineList", examineList()) //评审评估列表
+			.state("examine.examineOrderList", examineOrderList()) //评审评估预约
+			.state("examine.examineNewOrderList", examineNewOrderList()) //评审评估新增预约
+			.state("examine.examineReleaseList", examineReleaseList()) //进行中的评审评估
+			.state("examine.examineStopList", examineStopList()) //已结束的评审评估
+			.state("examine.selectExamine", selectExamine()) //新增评审评估--选择模板
+			.state("examine.addExamine1", addExamine1()) //新增评审评估模板1
+			.state("examine.addExamine2", addExamine2()) //新增评审评估模板2
+			.state("examine.addExamine3", addExamine3()) //新增评审评估模板3
+
 		;
 
 		//登录
@@ -334,28 +345,7 @@
 				}
 			}
 		}
-		//新增活动
-		function activityIncrease() {
-			return {
-				url: '/online/increase',
-				templateUrl: yiqi_config.baseUrl + "js/components/activity/activityIncrease.tpl.html",
-				controller: 'activityIncreaseCtrl as activityIncrease',
-				resolve: {
-					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "activity/activityIncrease.js")
-				}
-			}
-		}
-		//新增活动--收费票
-		function activityChargeTicket() {
-			return {
-				url: '/online/increase/chargeTicket',
-				templateUrl: yiqi_config.baseUrl + "js/components/activity/chargeTicket.tpl.html",
-				controller: 'activityChargeTicketCtrl as activityChargeTicket',
-				resolve: {
-					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "activity/chargeTicket.js")
-				}
-			}
-		}
+
 		//待审核活动
 		function activityAuditing() {
 			return {
@@ -375,6 +365,28 @@
 				controller: 'activityRecycleCtrl as activityRecycle',
 				resolve: {
 					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "activity/activityRecycle.js")
+				}
+			}
+		}
+		//新增活动
+		function activityIncrease() {
+			return {
+				url: '/increase',
+				templateUrl: yiqi_config.baseUrl + "js/components/activity/activityIncrease.tpl.html",
+				controller: 'activityIncreaseCtrl as activityIncrease',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "activity/activityIncrease.js")
+				}
+			}
+		}
+		//新增活动--收费票
+		function activityChargeTicket() {
+			return {
+				url: '/online/increase/chargeTicket',
+				templateUrl: yiqi_config.baseUrl + "js/components/activity/chargeTicket.tpl.html",
+				controller: 'activityChargeTicketCtrl as activityChargeTicket',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "activity/chargeTicket.js")
 				}
 			}
 		}
@@ -448,6 +460,126 @@
 				controller: 'addCrowdfundCtrl as addCrowdfund',
 				resolve: {
 					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "crowdfund/addCrowdfund.js")
+				}
+			}
+		}
+
+		//评审评估
+		function examine() {
+			return {
+				url: '/examine',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examine.tpl.html",
+				controller: 'examineCtrl as examine',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examine.js")
+				}
+			}
+		}
+
+		//评审评估列表
+		function examineList() {
+			return {
+				url: '/examineList',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examineList.tpl.html",
+				controller: 'examineListCtrl as examineList',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examineList.js")
+				}
+			}
+		}
+
+		//评审评估预约
+		function examineOrderList() {
+			return {
+				url: '/examineOrderList',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examineOrderList.tpl.html",
+				controller: 'examineOrderListCtrl as examineOrderList',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examineOrderList.js")
+				}
+			}
+		}
+
+		//评审评估新增预约
+		function examineNewOrderList() {
+			return {
+				url: '/examineNewOrderList',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examineNewOrderList.tpl.html",
+				controller: 'examineNewOrderListCtrl as examineNewOrderList',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examineNewOrderList.js")
+				}
+			}
+		}
+		
+		//进行中的评审评估
+		function examineReleaseList() {
+			return {
+				url: '/examineReleaseList',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examineReleaseList.tpl.html",
+				controller: 'examineReleaseListCtrl as examineReleaseList',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examineReleaseList.js")
+				}
+			}
+		}
+
+		//已结束的评审评估
+		function examineStopList() {
+			return {
+				url: '/examineStopList',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/examineStopList.tpl.html",
+				controller: 'examineStopListCtrl as examineStopList',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/examineStopList.js")
+				}
+			}
+		}
+
+		//新增评审评估
+		function selectExamine() {
+			return {
+				url: '/selectExamine',
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/selectExamine.tpl.html",
+				controller: 'selectExamineCtrl as selectExamine',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/selectExamine.js")
+				}
+			}
+		}
+
+		//新增评审评估模板1
+		function addExamine1() {
+			return {
+				url: '/addExamine1/:type', //type=>类型：评审0，评估1
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/addExamine1.tpl.html",
+				controller: 'addExamineCtrl as addExamine',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/addExamine.js")
+				}
+			}
+		}
+
+		//新增评审评估模板2
+		function addExamine2() {
+			return {
+				url: '/addExamine2/:type', //type=>类型：评审0，评估1
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/addExamine2.tpl.html",
+				controller: 'addExamineCtrl as addExamine',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/addExamine.js")
+				}
+			}
+		}
+
+		//新增评审评估模板3
+		function addExamine3() {
+			return {
+				url: '/addExamine3/:type', //type=>类型：评审0，评估1
+				templateUrl: yiqi_config.baseUrl + "js/components/examine/addExamine3.tpl.html",
+				controller: 'addExamineCtrl as addExamine',
+				resolve: {
+					loadMyCtrl: loadFileProvider.$get().load(yiqi_config.controllerUrl + "examine/addExamine.js")
 				}
 			}
 		}

@@ -1,7 +1,7 @@
-<div id="manage">
+<div id="activityAuditing">
 
 	<!--tab导航条 begin-->
-	<tab-Menu list-array="manage.tabMenu"></tab-Menu>
+	<tab-Menu list-array="activityAuditing.tabMenu"></tab-Menu>
 	<!--tab导航条 end-->
 
 	<div class="tab-content">
@@ -9,38 +9,38 @@
 			<div class="row search-container">
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">用户ID</span>
+						<span class="input-group-addon">活动名称</span>
 						<input type="text" class="form-control">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">用户名称</span>
+						<span class="input-group-addon">发起人ID</span>
 						<input type="text" class="form-control">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">用户邮件</span>
+						<span class="input-group-addon">时间</span>
 						<input type="text" class="form-control">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">手机号</span>
+						<span class="input-group-addon">分类</span>
 						<input type="text" class="form-control">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">注册开始时间</span>
-						<input type="text" class="form-control">
+						<span class="input-group-addon">创建开始时间</span>
+						<input type="text" class="form-control" id="start_time" lay-date ng-model="activityAuditing.searchForm.start_time" istime="true" format="YYYY年MM月DD日">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon">注册结束时间</span>
-						<input type="text" class="form-control">
+						<span class="input-group-addon">创建结束时间</span>
+						<input type="text" class="form-control" id="end_time" lay-date ng-model="activityAuditing.searchForm.end_time" istime="true" format="YYYY年MM月DD日">
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-12 pull-right text-align-right">
@@ -48,10 +48,6 @@
 						<button type="button" class="btn btn-success ml-10">
 							<i class="glyphicon glyphicon-search"></i>
 							<span>搜索</span>
-						</button>
-						<button type="button" class="btn btn-info ml-10">
-							<i class="glyphicon glyphicon-plus"></i>
-							<span>新增</span>
 						</button>
 						<button type="button" class="btn btn-danger ml-10">
 							<i class="glyphicon glyphicon-trash"></i>
@@ -65,47 +61,45 @@
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped table-hover middle">
 				<thead>
-					<tr class="text-primary">
-						<th width="30">
-							<input type="checkbox" ng-model="manage.checkAll">
-						</th>
-						<th>编号</th>
-						<th>用户名称</th>
-						<th>邮箱</th>
-						<th>手机号</th>
-						<th>帐户余额</th>
-						<th>wx openid</th>
-						<th>qq openid</th>
-						<th>weibo openid</th>
-						<th>最后登录的IP</th>
-						<th>最后登录的时间</th>
-						<th width="80" class="text-center">操作</th>
-					</tr>
+				<tr class="text-primary">
+					<th width="30">
+						<input type="checkbox" ng-model="activityAuditing.checkAll">
+					</th>
+					<th>编号</th>
+					<th>活动名称</th>
+					<th>类型</th>
+					<th>发起人</th>
+					<th>是否成功</th>
+					<th>关注</th>
+					<th>创建开始时间</th>
+					<th>创建结束时间</th>
+					<th>状态</th>
+					<th width="80" class="text-center">操作</th>
+				</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
-						<td width="30"><input type="checkbox" ng-checked="manage.checkAll"></td>
-						<td>{{item}}</td>
-						<td>Tomas</td>
-						<td>46541234564@qq.com</td>
-						<td>18854562598</td>
-						<td>￥53.1</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>192.245.10.255</td>
-						<td>2017-01-08 17:07:27</td>
-						<td width="80" class="text-center">
-							<a href="" class="margin-5 glyphicon glyphicon-pencil text-success" bs-show-dialog="selectEditType" click-func="manage.setId()"></a>
-							<a href="" class="margin-5 glyphicon glyphicon-trash text-danger" ng-click="manage.showDeleteDialog()" ></a>
-						</td>
-					</tr>
+				<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+					<td width="30"><input type="checkbox" ng-checked="activityAuditing.checkAll"></td>
+					<td>{{item}}</td>
+					<td>超级长的活动名称</td>
+					<td>什么类型</td>
+					<td>一个小瘦子</td>
+					<td>是</td>
+					<td>2300</td>
+					<td>2016-11-25&nbsp;18:14:20</td>
+					<td>2016-11-25&nbsp;18:14:20</td>
+					<td>待审核</td>
+					<td width="80" class="text-center">
+						<a href="" class="margin-5 glyphicon glyphicon-pencil text-success" bs-show-dialog="selectEditType" click-func="activityAuditing.setId()"></a>
+						<a href="" class="margin-5 glyphicon glyphicon-trash text-danger" ng-click="activityAuditing.showDeleteDialog()" ></a>
+					</td>
+				</tr>
 				</tbody>
 			</table>
 		</div>
 		<!--表格 end-->
 		<!--分页 begin-->
-		<page-bar page-change="manage.pageParams.pageChange()" page-count="manage.pageParams.page_count" current="manage.pageParams.current" show-page="{{manage.pageParams.showPage}}"></page-bar>
+		<page-bar page-change="activityAuditing.pageParams.pageChange()" page-count="activityAuditing.pageParams.page_count" current="activityAuditing.pageParams.current" show-page="{{activityAuditing.pageParams.showPage}}"></page-bar>
 		<!--分页 end-->
 
 		<!--编辑弹框 begin-->
@@ -142,7 +136,7 @@
 						<div>确定删除吗？该操作不可逆，请谨慎执行！</div>
 					</div>
 					<div class="modal-footer">
-						<div class="btn btn-success" ng-click="manage.deleteUser()">确定</div>
+						<div class="btn btn-success" ng-click="activityAuditing.deleteUser()">确定</div>
 						<div class="btn btn-default" bs-hide-dialog="deleteUserPanel">取消</div>
 					</div>
 				</div>

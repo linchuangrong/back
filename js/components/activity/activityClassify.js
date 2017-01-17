@@ -36,6 +36,10 @@
 			"name": "项目回收站",
 			"active": false,
 			"url": "activity.activityRecycle"
+		}, {
+			"name": "新增活动",
+			"active": false,
+			"url": "activity.activityIncrease"
 		}];
 
 		//分页参数

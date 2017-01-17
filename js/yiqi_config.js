@@ -9,7 +9,7 @@
 var yiqi_config = {
 	"baseUrl": "",
 	"apiUrl": "/phalapi/public/yiapp/",
-	"serviceUrl": "js/service/",
-	"directiveUrl": "js/directive/",
+	"serviceUrl": "js/service",
+	"directiveUrl": "js/directive",
 	"controllerUrl": "js/components/",
 }

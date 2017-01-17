@@ -1,41 +1,44 @@
 /**
  * 作者：林创荣
- * 功能：活动分类
+ * 功能：筹款类型
  * 时间：2016年01月12日
  */
 (function() {
 	'use strict';
 
 	app.import(yiqi_config.directiveUrl + '/pagebar.directive.js', 'pagebar.directive'); //分页插件
-	app.import(yiqi_config.directiveUrl + '/bsDialog.directive.js', 'bsHideDialog.directive'); //显示、隐藏弹框插件
 	app.import(yiqi_config.directiveUrl + '/layDate.directive.js', 'layDate.directive'); //日期插件
 
-	app.addController("classifyCtrl", classifyCtrl);
-	classifyCtrl.$inject = ['$rootScope', '$window', '$timeout'];
+	app.addController("examineListCtrl", examineListCtrl);
+	examineListCtrl.$inject = ['$rootScope', '$window'];
 
-	function classifyCtrl($rootScope, $window, $timeout) {
+	function examineListCtrl($rootScope, $window) {
 		var vm = this;
-		$rootScope.title = "活动分类";
+		$rootScope.title = "筹款类型";
 
 		/*****************变量 begin****************/
-		
+
 		//tab选项卡标题
 		vm.tabMenu = [{
-			"name": "活动分类",
+			"name": "评审评估",
 			"active": true,
-			"url": "activity.classify"
+			"url": "examine.examineList"
 		}, {
-			"name": "已上线活动",
+			"name": "预约列表",
 			"active": false,
-			"url": "activity.online"
+			"url": "examine.examineOrderList"
 		}, {
-			"name": "待审核活动",
+			"name": "进行中",
 			"active": false,
-			"url": "activity.auditing"
+			"url": "examine.examineReleaseList"
 		}, {
-			"name": "项目回收站",
+			"name": "已结束",
 			"active": false,
-			"url": "activity.recycle"
+			"url": "examine.examineStopList"
+		}, {
+			"name": "新增评审评估",
+			"active": false,
+			"url": "examine.selectExamine"
 		}];
 
 		//分页参数
@@ -45,35 +48,18 @@
 			current: 1, //当前页
 			page_count: 40, //总共多少页
 			pageChange: pageChangeFn //切换页面函数
-		};
+		}
 
-		vm.searchForm={
-			"start_time":"",
-			"end_time":""
-		};
+		vm.searchForm = {
+			"start_time": "",
+			"end_time": ""
+		}
+
 		/*****************变量 end****************/
 
 		/*****************函数 begin****************/
 
-		vm.showDeleteDialog = showDeleteDialogFn;
-
 		/*****************函数 end****************/
-
-		// (function init() {
-		// 	$rootScope.showLoading = true;
-		// 	$timeout(function() {
-		// 		$rootScope.showLoading = false;
-		// 	}, 1000);
-		// })();
-
-		(function init() {
-			/*loading 模拟*/
-			window.loading.show();
-			$timeout(function() {
-				window.loading.hide();
-			}, 1000);
-
-		})();
 
 		//
 		//
@@ -99,30 +85,6 @@
 					console.log("输入非法");
 				}
 			}
-		}
-
-		//
-		//
-		//
-		//
-		//
-		//----------------------------编辑按钮------------------------------------------
-		//
-		//
-		//
-		//
-		//
-		function showDeleteDialogFn() {
-			var params = {
-				"title": "删除提示",
-				"html": "确定删除吗？",
-				"confirm": vm.deleteConfirm,
-				"confirmText": "确定",
-				"cancel": null,
-				"cancelText": "取消",
-				"width": "400px"
-			}
-			window.buttonDialog.show(params);
 		}
 
 	}

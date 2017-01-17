@@ -10,11 +10,11 @@
 	app.import(yiqi_config.directiveUrl + '/layDate.directive.js', 'layDate.directive'); //日期插件
 
 	app.addController("activityIncreaseCtrl", activityIncreaseCtrl);
-	activityIncreaseCtrl.$inject = ['$rootScope'];
+	activityIncreaseCtrl.$inject = ['$rootScope', '$window'];
 
-	function activityIncreaseCtrl($rootScope) {
+	function activityIncreaseCtrl($rootScope, $window) {
 		var vm = this;
-		$rootScope.title = "新增活动分类";
+		$rootScope.title = "新增活动";
 
 		/*****************变量 begin****************/
 
@@ -25,7 +25,7 @@
 			"url": "activity.activityClassify"
 		}, {
 			"name": "已上线活动",
-			"active": true,
+			"active": false,
 			"url": "activity.activityOnline"
 		}, {
 			"name": "待审核活动",
@@ -35,6 +35,10 @@
 			"name": "项目回收站",
 			"active": false,
 			"url": "activity.activityRecycle"
+		}, {
+			"name": "新增活动",
+			"active": true,
+			"url": "activity.activityIncrease"
 		}];
 
 		//面包屑标题
@@ -54,7 +58,7 @@
 		/*****************函数 begin****************/
 		vm.setId = setIdFn;
 		/*****************函数 end****************/
-
+	
 		//
 		//
 		//

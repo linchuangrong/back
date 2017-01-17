@@ -1,0 +1,120 @@
+<div id="addExamine">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="addExamine.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content clearfix">
+
+		<!--面包屑导航条 begin-->
+		<breadcrumb list-array="addExamine.smallMenu"></breadcrumb>
+		<!--面包屑导航条 end-->
+		<form name="submitForm" novalidate="novalidate">
+			<div class="row">
+				<div class="form-group clearfix">
+					<label class="text-right left-label">评分表标题</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" placeholder="请输入评分表标题">
+					</div>
+				</div>
+				<div class="form-group clearfix">
+					<label class="text-right left-label">项目编号</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" placeholder="请输入项目编号">
+					</div>
+				</div>
+				<div class="form-group clearfix">
+					<label class="text-right left-label">项目名称</label>
+					<div class="col-sm-8 clearfix">
+						<div class="project-name-box mb-15 clearfix" ng-repeat="item in addExamine.projectNameArray track by $index">
+							<div class="width-80 float-left">
+								<input type="text" class="form-control" ng-model="addExamine.projectNameArray[$index]" placeholder="请输入项目名称">
+							</div>
+							<div class="width-20 float-left icon-box">
+								<a class="glyphicon glyphicon-plus ml-20" href="javascript://" title="添加" ng-click="addExamine.addProjectName($index)"></a>
+								<a class="glyphicon glyphicon-trash ml-10" href="javascript://" title="删除" ng-click="addExamine.deleteProjectName($index)"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group clearfix">
+					<label class="text-right left-label">流程指引（通知）标题</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" placeholder="如：XXX项目流程指引">
+					</div>
+				</div>
+				<div class="form-group clearfix">
+					<label class="text-right left-label">流程指引（通知）内容</label>
+					<div class="col-sm-8">
+						<textarea type="text" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<!--设计表单 begin-->
+			<ul class="breadcrumb bg-success">
+				<li class="active">设计表单</li>
+			</ul>
+			<div class="add-form-panel clearfix">
+				<div class="left-float-content">
+					<div ng-repeat="item_1 in addExamine.designJson track by $index" id="{{$index+1}}">
+						<!--1个评审科目 begin-->
+						<div ng-repeat="item_2 in item_1.data track by $index" id="{{$parent.$index+1}}_{{$index+1}}">
+							<!--1道题 begin-->
+							<div class="panel panel-warning" ng-repeat="item_3 in item_2.data track by $index" id="{{$parent.$parent.$index+1}}_{{$parent.$index+1}}_{{$index+1}}">
+								<div class="panel-heading">
+									<span>{{$index+1}} -- 指标</span>
+									<!--按钮组 begin-->
+									<i class="glyphicon glyphicon-plus" title="添加" ng-click="addExamine.addThirdObj($event,$parent.$parent.$index,$parent.$index,$index)" id="add_{{$parent.$parent.$index+1}}_{{$parent.$index+1}}_{{$index+1}}"></i>
+									<i class="glyphicon glyphicon-trash" title="删除" ng-hide="$first" ng-click="addExamine.deleteThirdObj($parent.$parent.$index,$parent.$index,$index)"></i>
+									<i class="glyphicon glyphicon-arrow-down" title="下移" ng-click="addExamine.moveBottomThird($parent.$parent.$index,$parent.$index,$index)" ng-hide="$last"></i>
+									<i class="glyphicon glyphicon-arrow-up" title="上移" ng-click="addExamine.moveTopThird($parent.$parent.$index,$parent.$index,$index)" ng-hide="$first"></i>
+									<!--按钮组 end-->
+								</div>
+								<div class="panel-body third-panel">
+									<div class="row">
+										<div class="form-group clearfix">
+											<label class="text-right col-sm-3">指标标题</label>
+											<div class="col-sm-9">
+												<input class="form-control" type="text" ng-model="addExamine.designJson[$parent.$parent.$index].data[$parent.$index].data[$index].third_title" />
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="text-right col-sm-3">分值</label>
+											<div class="col-sm-9">
+												<input class="form-control" type="number" ng-model="addExamine.designJson[$parent.$parent.$index].data[$parent.$index].data[$index].score" />
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="text-right col-sm-3">说明</label>
+											<div class="col-sm-9">
+												<textarea class="form-control" type="text" ng-model="addExamine.designJson[$parent.$parent.$index].data[$parent.$index].data[$index].remark"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--1道题 end-->
+						</div>
+						<!--1个评审科目 end-->
+
+					</div>
+				</div>
+				<div class="right-float-content">
+					<div class="panel panel-success">
+						<div class="panel-heading">自定义栏位（点击添加）</div>
+						<div class="panel-body">
+							<div class="alert alert-warning width-100 hover-pointer" ng-click="addExamine.addLastThirdObj()">
+								<span>指标</span>
+								<i class="glyphicon glyphicon-plus"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--设计表单 end-->
+			<div class="text-align-center pb-20">
+				<button type="submit" class="btn btn-success pl-20 pr-20">提交表单</button>
+			</div>
+		</form>
+	</div>
+</div>

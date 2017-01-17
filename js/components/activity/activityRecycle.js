@@ -7,33 +7,38 @@
 	'use strict';
 
 	app.import(yiqi_config.directiveUrl + '/pagebar.directive.js', 'pagebar.directive'); //分页插件
+	app.import(yiqi_config.directiveUrl + '/layDate.directive.js', 'layDate.directive'); //日期插件
+	
+	app.addController("activityRecycleCtrl", activityRecycleCtrl);
+	activityRecycleCtrl.$inject = ['$rootScope', '$window'];
 
-	app.addController("manageCtrl", manageCtrl);
-	manageCtrl.$inject = ['$rootScope', '$window', '$timeout'];
-
-	function manageCtrl($rootScope, $window, $timeout) {
+	function activityRecycleCtrl($rootScope, $window) {
 		var vm = this;
-		$rootScope.title = "系统日志";
+		$rootScope.title = "项目回收站";
 
 		/*****************变量 begin****************/
 
 		//tab选项卡标题
 		vm.tabMenu = [{
-			"name": "用户管理",
+			"name": "活动分类",
+			"active": false,
+			"url": "activity.activityClassify"
+		}, {
+			"name": "已上线活动",
+			"active": false,
+			"url": "activity.activityOnline"
+		}, {
+			"name": "待审核活动",
+			"active": false,
+			"url": "activity.activityAuditing"
+		}, {
+			"name": "项目回收站",
 			"active": true,
-			"url": "user.manage"
+			"url": "activity.activityRecycle"
 		}, {
-			"name": "个人实名认证",
+			"name": "新增活动",
 			"active": false,
-			"url": "user.certification"
-		}, {
-			"name": "企业认证",
-			"active": false,
-			"url": "user.companyCertification"
-		}, {
-			"name": "评审评估机构认证",
-			"active": false,
-			"url": "user.examineCertification"
+			"url": "activity.activityIncrease"
 		}];
 
 		//分页参数
@@ -55,15 +60,7 @@
 
 		/*****************函数 end****************/
 
-		(function init() {
 
-			/*loading 模拟*/
-			window.loading.show();
-			$timeout(function() {
-				window.loading.hide();
-			}, 1000);
-
-		})();
 
 		//
 		//

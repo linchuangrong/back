@@ -47,7 +47,6 @@ body {
 /*页面开始加载入口*/
 body,
 html {
-    overflow-x: hidden;
     background-color: @body-background-color;
     height: 100%;
 }
@@ -266,6 +265,9 @@ div.page-bar {
 .ml-20 {
     margin-left: 20px;
 }
+.ml-30 {
+    margin-left: 30px;
+}
 .mt-10 {
     margin-top: 10px;
 }
@@ -284,6 +286,9 @@ div.page-bar {
 .mb-10 {
     margin-bottom: 10px;
 }
+.mb-15 {
+    margin-bottom: 15px;
+}
 .mb-20 {
     margin-bottom: 20px;
 }
@@ -292,6 +297,7 @@ div.page-bar {
     margin-left: 5px;
     margin-right: 5px;
 }
+
 /*公共样式 end*/
 
 /*右侧公用的tab样式 begin*/
@@ -342,6 +348,20 @@ div.page-bar {
         .label {
             padding-top: 0.3em;
             font-weight: normal;
+        }
+    }
+}
+.table.td-first-width-185 {
+    tr {
+        td:nth-child(1) {
+            width: 185px;
+        }
+    }
+}
+.table.td-first-width-220 {
+    tr {
+        td:nth-child(1) {
+            width: 220px;
         }
     }
 }

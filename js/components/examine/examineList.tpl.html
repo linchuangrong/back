@@ -1,0 +1,86 @@
+<div id="examineList">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="examineList.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+
+		<form class="form-horizontal" novalidate="novalidate">
+			<div class="row search-container">
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">关键词</span>
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">开始时间</span>
+						<input type="text" class="form-control" id="start_time" lay-date ng-model="examineList.searchForm.start_time" istime="true">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon">结束时间</span>
+						<input type="text" class="form-control" id="end_time" lay-date ng-model="examineList.searchForm.end_time" istime="true">
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 pull-right text-align-right">
+					<div class="input-group">
+						<button type="button" class="btn btn-success ml-10">
+							<i class="glyphicon glyphicon-search"></i>
+							<span>搜索</span>
+						</button>
+						<!--<button type="button" class="btn btn-info ml-10">
+							<i class="glyphicon glyphicon-plus"></i>
+							<span>新增</span>
+						</button>-->
+						<button type="button" class="btn btn-danger ml-10">
+							<i class="glyphicon glyphicon-trash"></i>
+							<span>多项删除</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<!--表格 begin-->
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped table-hover middle">
+				<thead>
+					<tr class="text-primary">
+						<th width="30">
+							<input type="checkbox" ng-model="examineList.checkAll">
+						</th>
+						<th>编号</th>
+						<th>标题</th>
+						<th>项目名称</th>
+						<th>创建人</th>
+						<th>创建时间</th>
+						<th width="80" class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in [1,2,3,4,5,6,7,8,9,10]">
+						<td width="30"><input type="checkbox" ng-checked="examineList.checkAll"></td>
+						<td>{{item}}</td>
+						<td>扶贫助学</td>
+						<td>超级长的项目名称超级长的项目名称</td>
+						<td>胖子明</td>
+						<td>2017年1月16日 11:58:41</td>
+						<td width="80" class="text-center">
+							<a href="" class="ml-5 mr-5 glyphicon glyphicon-pencil text-success" title="编辑"></a>
+							<a href="" class="ml-5 mr-5 glyphicon glyphicon-trash text-danger" title="删除"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--表格 end-->
+		<!--分页 begin-->
+		<page-bar page-change="examineList.pageParams.pageChange()" page-count="examineList.pageParams.page_count" current="examineList.pageParams.current" show-page="{{examineList.pageParams.showPage}}"></page-bar>
+		<!--分页 end-->
+
+	</div>
+</div>

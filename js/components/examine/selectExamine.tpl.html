@@ -1,0 +1,38 @@
+<div id="selectExamine">
+
+	<!--tab导航条 begin-->
+	<tab-Menu list-array="selectExamine.tabMenu"></tab-Menu>
+	<!--tab导航条 end-->
+
+	<div class="tab-content">
+
+		<form name="selectForm" novalidate="novalidate">
+			<!--表格 begin-->
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover break-all middle td-first-width-185">
+					<tbody>
+						<tr>
+							<td class="info text-align-right">应用场景</td>
+							<td>
+								<select class="form-control" style="width: 100px;" ng-model="selectExamine.selectForm.type" ng-options="item.id as item.name for item in selectExamine.typeArray">
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="info text-align-right">选择模板</td>
+							<td>
+								<select class="form-control" style="width: 100px;" ng-model="selectExamine.selectForm.template" ng-options="item.id as item.name for item in selectExamine.templateArray">
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--表格 end-->
+			<div class="pb-20 text-align-center">
+				<button type="button" class="btn btn-success padding-left-right-20" ng-click="selectExamine.goToPage()">确&nbsp;&nbsp;定</button>
+			</div>
+		</form>
+
+	</div>
+</div>

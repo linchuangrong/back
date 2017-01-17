@@ -7,20 +7,21 @@
 	'use strict';
 
 	app.import(yiqi_config.directiveUrl + '/pagebar.directive.js', 'pagebar.directive'); //分页插件
+	app.import(yiqi_config.directiveUrl + '/layDate.directive.js', 'layDate.directive'); //日期插件
 
-	app.addController("manageCtrl", manageCtrl);
-	manageCtrl.$inject = ['$rootScope', '$window', '$timeout'];
+	app.addController("activityAuditingCtrl", activityAuditingCtrl);
+	activityAuditingCtrl.$inject = ['$rootScope', '$window'];
 
-	function manageCtrl($rootScope, $window, $timeout) {
+	function activityAuditingCtrl($rootScope, $window) {
 		var vm = this;
-		$rootScope.title = "系统日志";
+		$rootScope.title = "待审核活动";
 
 		/*****************变量 begin****************/
 
 		//tab选项卡标题
 		vm.tabMenu = [{
 			"name": "活动分类",
-			"active": true,
+			"active": false,
 			"url": "activity.activityClassify"
 		}, {
 			"name": "已上线活动",
@@ -28,12 +29,16 @@
 			"url": "activity.activityOnline"
 		}, {
 			"name": "待审核活动",
-			"active": false,
+			"active": true,
 			"url": "activity.activityAuditing"
 		}, {
 			"name": "项目回收站",
 			"active": false,
 			"url": "activity.activityRecycle"
+		}, {
+			"name": "新增活动",
+			"active": false,
+			"url": "activity.activityIncrease"
 		}];
 
 		//分页参数
@@ -55,15 +60,7 @@
 
 		/*****************函数 end****************/
 
-		(function init() {
-
-			/*loading 模拟*/
-			window.loading.show();
-			$timeout(function() {
-				window.loading.hide();
-			}, 1000);
-
-		})();
+	
 
 		//
 		//

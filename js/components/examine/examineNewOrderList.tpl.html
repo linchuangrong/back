@@ -1,0 +1,165 @@
+<div id="examineNewOrderList">
+
+    <!--tab导航条 begin-->
+    <tab-Menu list-array="examineNewOrderList.tabMenu"></tab-Menu>
+    <!--tab导航条 end-->
+    <div class="tab-content">
+        <!--面包屑导航条 begin-->
+        <breadcrumb list-array="examineNewOrderList.smallMenu"></breadcrumb>
+        <!--面包屑导航条 end-->
+        <form name="editForm" novalidate="novalidate">
+            <!--表格 begin-->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover break-all middle td-first-width-185">
+                    <tbody>
+                    <tr>
+                        <td class="info text-align-right">项目名称</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">地点</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">联系电话</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">电子邮箱</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">内容及流程</td>
+                        <td>
+                            <textarea type="text" class="form-control auto-input-width">这是一个副文本框</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">评审/评估预算</td>
+                        <td>
+                            <div class="auto-input-width">
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon input-group-addon-success">元</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">生成报告截止时间</td>
+                        <td>
+                            <input type="text" class="form-control auto-input-width" id="end_time" lay-date
+                                   ng-model="examineNewOrderList.searchForm.end_time" istime="true"
+                                   format="YYYY年MM月DD日" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">状态</td>
+                        <td>
+                            <div class="radio">
+                                <label class="radio-inline ml-10 mr-20">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 通过
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 不通过
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info text-align-right">拒绝理由</td>
+                        <td>
+                            <textarea type="text" class="form-control auto-input-width">这是一个副文本框</textarea>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!--表格 end-->
+            <div class="pb-20 text-align-center">
+                <button type="button" class="btn btn-success padding-left-right-20">确&nbsp;&nbsp;定</button>
+            </div>
+        </form>
+        <div class="modal fade" id="selectEditType" tabindex="-1">
+            <div class="modal-dialog" style="width: 660px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" bs-hide-dialog="selectEditType">&times;</button>
+                        <div>添加票种</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-align-center">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputType" class="col-md-3 control-label">票种类型</label>
+                                    <div class="col-md-3">
+                                        <select class="form-control" id="inputType">
+                                            <option>选择票种类型</option>
+                                            <option>免费票</option>
+                                            <option>收费票</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEnd_time" class="col-md-3 control-label">报名截止时间</label>
+                                    <div class="col-md-6 col-xs-6">
+                                        <input type="text" class="form-control" id="inputEnd_time" lay-date
+                                               ng-model="examineNewOrderList.searchForm.end_time" istime="true"
+                                               format="YYYY年MM月DD日">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMoney" class="col-md-3 control-label">单价</label>
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="input-group" id="inputMoney">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-addon input-group-addon-success">元/张</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputNumber" class="col-md-3 control-label">收费票数量</label>
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="input-group" id="inputNumber">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-addon input-group-addon-success">张</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPackage" class="col-md-3 control-label">套餐设置</label>
+                                    <div class="col-md-3">
+                                        <select class="form-control" id="inputPackage">
+                                            <option>选择套餐</option>
+                                            <option>单人票</option>
+                                            <option>双人票</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDetails" class="col-md-3 control-label">费用说明</label>
+                                    <div class="col-md-6 col-xs-6">
+                                        <textarea type="text" class="form-control" id="inputDetails">这是一个副文本框</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn btn-success" bs-hide-dialog="selectEditType" click-func="manage.yes()">确定</div>
+                        <div class="btn btn-default" bs-hide-dialog="selectEditType">取消</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

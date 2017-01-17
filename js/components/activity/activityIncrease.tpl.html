@@ -1,14 +1,8 @@
 <div id="activityIncrease">
-
 	<!--tab导航条 begin-->
 	<tab-Menu list-array="activityIncrease.tabMenu"></tab-Menu>
 	<!--tab导航条 end-->
-
 	<div class="tab-content">
-
-		<!--面包屑导航条 begin-->
-		<breadcrumb list-array="activityIncrease.smallMenu"></breadcrumb>
-		<!--面包屑导航条 end-->
 
 		<form name="editForm" novalidate="novalidate">
 			<!--表格 begin-->
@@ -45,7 +39,7 @@
 							<div class="auto-input-width">
 								<div class="input-group">
 									<input type="text" class="form-control">
-									<span class="input-group-addon input-group-addon-color">人</span>
+									<span class="input-group-addon input-group-addon-success">人</span>
 								</div>
 							</div>
 
@@ -92,7 +86,6 @@
 							</div>
 						</td>
 					</tr>
-
 					<tr>
 						<td class="info text-align-right">活动类别</td>
 						<td>
@@ -115,8 +108,9 @@
 					<tr>
 						<td class="info text-align-right">选择票种</td>
 						<td>
-							<button type="button" class="btn btn-success">免费票</button>
-							<button type="button" class="btn btn-success margin-left-10" bs-show-dialog="selectEditType" click-func="activityIncrease.setId()">收费票</button>
+							<!--<button type="button" class="btn btn-success">免费票</button>-->
+							<!--<button type="button" class="btn btn-success ml-10">收费票</button>-->
+							<button type="button" class="btn btn-success" bs-show-dialog="selectEditType" click-func="activityIncrease.setId()">添加票种</button>
 						</td>
 					</tr>
 					<tr>
@@ -132,17 +126,15 @@
 								<label class="radio-inline">
 									<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 有效
 								</label>
-								<label class="radio-inline margin-left-30">
+								<label class="radio-inline ml-30">
 									<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 无效
 								</label>
-								<label class="radio-inline margin-left-30">
+								<label class="radio-inline ml-30">
 									<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 待审核
 								</label>
 							</div>
 						</td>
 					</tr>
-
-
 					</tbody>
 				</table>
 			</div>
@@ -151,20 +143,67 @@
 				<button type="button" class="btn btn-success padding-left-right-20">确&nbsp;&nbsp;定</button>
 			</div>
 		</form>
-
-
 		<div class="modal fade" id="selectEditType" tabindex="-1">
 			<div class="modal-dialog" style="width: 660px;">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" bs-hide-dialog="selectEditType">&times;</button>
-						<div>选择编辑类型</div>
+						<div>添加票种</div>
 					</div>
 					<div class="modal-body">
 						<div class="text-align-center">
-							<a class="btn btn-info" bs-hide-dialog="selectEditType" ui-sref="user.editInfo">个人信息</a>
-							<a class="btn btn-warning" bs-hide-dialog="selectEditType" ui-sref="user.address">收货地址</a>
-							<a class="btn btn-success" bs-hide-dialog="selectEditType" ui-sref="user.bankcard">银行卡</a>
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="inputType" class="col-md-3 control-label">票种类型</label>
+									<div class="col-md-3">
+										<select class="form-control" id="inputType">
+											<option>选择票种类型</option>
+											<option>免费票</option>
+											<option>收费票</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputEnd_time" class="col-md-3 control-label">报名截止时间</label>
+									<div class="col-md-6 col-xs-6">
+										<input type="text" class="form-control" id="inputEnd_time" lay-date ng-model="activityIncrease.searchForm.end_time" istime="true" format="YYYY年MM月DD日">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputMoney" class="col-md-3 control-label">单价</label>
+									<div class="col-md-6 col-xs-6">
+										<div class="input-group" id="inputMoney">
+											<input type="text" class="form-control">
+											<span class="input-group-addon input-group-addon-success">元/张</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputNumber" class="col-md-3 control-label">收费票数量</label>
+									<div class="col-md-6 col-xs-6">
+										<div class="input-group" id="inputNumber">
+											<input type="text" class="form-control">
+											<span class="input-group-addon input-group-addon-success">张</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPackage" class="col-md-3 control-label">套餐设置</label>
+									<div class="col-md-3">
+										<select class="form-control" id="inputPackage">
+											<option>选择套餐</option>
+											<option>单人票</option>
+											<option>双人票</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputDetails" class="col-md-3 control-label">费用说明</label>
+									<div class="col-md-6 col-xs-6">
+										<textarea type="text" class="form-control" id="inputDetails">这是一个副文本框</textarea>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div class="modal-footer">

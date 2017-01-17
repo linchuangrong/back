@@ -10,14 +10,13 @@
 	app.import(yiqi_config.directiveUrl + '/layDate.directive.js', 'layDate.directive'); //日期插件
 	
 	app.addController("activityOnlineCtrl", activityOnlineCtrl);
-	activityOnlineCtrl.$inject = ['$rootScope', '$window', '$timeout'];
+	activityOnlineCtrl.$inject = ['$rootScope', '$window'];
 
-	function activityOnlineCtrl($rootScope, $window, $timeout) {
+	function activityOnlineCtrl($rootScope, $window) {
 		var vm = this;
 		$rootScope.title = "已上线活动";
 
 		/*****************变量 begin****************/
-
 		//tab选项卡标题
 		vm.tabMenu = [{
 			"name": "活动分类",
@@ -35,8 +34,11 @@
 			"name": "项目回收站",
 			"active": false,
 			"url": "activity.activityRecycle"
+		}, {
+			"name": "新增活动",
+			"active": false,
+			"url": "activity.activityIncrease"
 		}];
-
 		//分页参数
 		vm.pageParams = {
 			showPage: 5, //显示多少个页码提供用户点击，不会变
