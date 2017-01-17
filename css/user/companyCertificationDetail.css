@@ -1,9 +1,0 @@
-/*企业认证审核*/
-#companyCertificationDetail .table tr td:nth-child(1) {
-  width: 185px;
-}
-#companyCertificationDetail .idCard img {
-  width: 300px;
-  height: auto;
-  display: block;
-}
