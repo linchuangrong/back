@@ -47,7 +47,7 @@ function importFn(moduleAndPath, moduleName) {
 //animate动画
 app.import(yiqi_config.baseUrl + 'js/libs/angular/angular-animate.js', 'ngAnimate');
 //加入拦截器
-app.import(yiqi_config.serviceUrl + '/httpInterceptor.factory.js', 'httpInterceptor.factory');
+app.import(yiqi_config.serviceUrl + '/httpInterceptor.service.js', 'httpInterceptor.service');
 app.import(yiqi_config.baseUrl + 'js/dao/app.dao.js', 'app.dao');
 app.import(yiqi_config.baseUrl + 'js/filter/common.filter.js', 'common.filter');
 app.import(yiqi_config.directiveUrl + '/loading.directive.js', 'loading.directive');
